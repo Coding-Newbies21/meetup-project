@@ -18,9 +18,9 @@ GOAL1: allow users to create, and edit an account
 
 ## Step 2: display a form to create an account
 
-- [] Route (GET `/register`) (inside `auth.routes.js`)
-- [] Create a view (`auth/register.hbs`)
-- [] Update `layout.hbs` and `style.css`
+- [X] Route (GET `/register`) (inside `auth.routes.js`)
+- [X] Create a view (`auth/register.hbs`)
+- [-] Update `layout.hbs` and `style.css`
 
 ## Step 3: process the form and create an account
 
