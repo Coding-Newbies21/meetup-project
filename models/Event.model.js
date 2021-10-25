@@ -13,14 +13,16 @@ const eventSchema = new Schema(
       required: [true, 'Description is required.'],
     },
 
-    // organisers: {
-    //   type: String,
-    //   required: [true, 'The event needs at least one organiser']
-    // },
+    organisers: {type: Schema.Types.ObjectId, ref: 'User'},
+    
 
     category: {
       type: String,
       required: [true, 'Password is required.'],
+    },
+
+    image: {
+      type: String,
     }
   },
   {

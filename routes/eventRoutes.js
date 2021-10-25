@@ -1,6 +1,9 @@
 const router = require("express").Router();
 const Event = require("../models/Event.model");
+const User = require("../models/User.model");
 
+const isLoggedOut = require("../middleware/isLoggedOut");
+const isLoggedIn = require("../middleware/isLoggedIn");
 
 
 router.get("/events", (req, res, next) => {
@@ -22,22 +25,31 @@ router.get("/events", (req, res, next) => {
 });
 
 
-router.get("/events/create", (req, res, next) => {
+router.get("/events/create", isLoggedIn, (req, res, next) => {
   res.render("events/event-create");
 });
 
 
-router.post("/events/create", (req, res, next) => {
+router.post("/events/create", isLoggedIn, (req, res, next) => {
 
-  const { title, description, category } = req.body;
+  const {title, description, category, image } = req.body;
+  const organisers = req.user._id
 
-  console.log(req.body);
-  Event.create({ title, description, category })
+  const data = {
+    title,
+    description,
+    category,
+    organisers,
+    image,
+  }
+  
+  Event.create(data)
     .then(() => {
       res.redirect("/events");
     })
     .catch((error) => {
-      console.log("Error creating the event", error);
+      //console.log("Error creating the event", error);
+      res.re
     })
 })
 

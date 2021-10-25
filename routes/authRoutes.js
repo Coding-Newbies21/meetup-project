@@ -15,7 +15,7 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
 router.get("/user-profile", (req, res)=>{
-  res.send ("welcome to your userprofile")
+  res.render("users/user-profile")
 })
 router.get("/register", (req, res) => { //add isloggedOut
   res.render("auth/register");
@@ -79,7 +79,9 @@ router.post("/register", (req, res) => { //add isloggedOut
         // Bind the user to the session object
         req.session.user = user;
         //res.send("hi")
-        res.redirect("/user-profile");
+        console.log(user)
+        res.render("users/user-profile", { userInSession: req.session.user });
+        
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
