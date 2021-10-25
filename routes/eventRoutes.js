@@ -42,10 +42,11 @@ router.post("/events/create", isLoggedIn, (req, res, next) => {
     organisers,
     image,
   }
-  
+
   Event.create(data)
     .then(() => {
-      res.redirect("/events");
+      res.render("events/event-details")
+
     })
     .catch((error) => {
       //console.log("Error creating the event", error);
@@ -53,6 +54,14 @@ router.post("/events/create", isLoggedIn, (req, res, next) => {
     })
 })
 
+router.get("/events/edit", (req, res, next) => {
+ res.send("lets edit")
 
+ });
+
+router.get("/events/other-events", (req, res, next) => {
+  res.redirect("/events")
+
+});
 
 module.exports = router;
