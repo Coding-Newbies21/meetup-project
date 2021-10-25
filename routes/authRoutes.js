@@ -14,24 +14,33 @@ const User = require("../models/User.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-router.get("/register", isLoggedOut, (req, res) => {
+router.get("/user-profile", (req, res)=>{
+  res.send ("welcome to your userprofile")
+})
+router.get("/register", (req, res) => { //add isloggedOut
   res.render("auth/register");
 });
 
-router.post("/register", isLoggedOut, (req, res) => {
-  const { username, password } = req.body;
+router.post("/register", (req, res) => { //add isloggedOut
+  const { username, email, password } = req.body;
 
-  if (!username) {
+  /*if (!username) {
     return res
       .status(400)
       .render("auth/register", { errorMessage: "Please provide your username." });
+  }
+
+  if (!email) {
+    return res
+      .status(400)
+      .render("auth/register", { errorMessage: "Please provide an email." });
   }
 
   if (password.length < 8) {
     return res.status(400).render("auth/register", {
       errorMessage: "Your password needs to be at least 8 characters long.",
     });
-  }
+  }*/
 
   //   ! This use case is using a regular expression to control for special characters and min length
   /*
@@ -51,7 +60,7 @@ router.post("/register", isLoggedOut, (req, res) => {
     if (found) {
       return res
         .status(400)
-        .render("auth.signup", { errorMessage: "Username already taken." });
+        .render("auth/register", { errorMessage: "Username already taken." });
     }
 
     // if user is not found, create a new user - start with hashing the password
@@ -62,13 +71,15 @@ router.post("/register", isLoggedOut, (req, res) => {
         // Create a user and save it in the database
         return User.create({
           username,
+          email,
           password: hashedPassword,
         });
       })
       .then((user) => {
         // Bind the user to the session object
         req.session.user = user;
-        res.redirect("/");
+        //res.send("hi")
+        res.redirect("/user-profile");
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
