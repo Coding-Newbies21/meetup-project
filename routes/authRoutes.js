@@ -14,7 +14,7 @@ const User = require("../models/User.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-router.get("/user-profile", (req, res)=>{
+router.get("/user-profile", (req, res) => {
   res.render("users/user-profile", { userInSession: req.session.user })
 })
 
@@ -25,7 +25,7 @@ router.get("/register", (req, res) => { //add isloggedOut
 router.post("/register", (req, res) => { //add isloggedOut
   const { username, email, password } = req.body;
 
-  /*if (!username) {
+  if (!username) {
     return res
       .status(400)
       .render("auth/register", { errorMessage: "Please provide your username." });
@@ -41,10 +41,10 @@ router.post("/register", (req, res) => { //add isloggedOut
     return res.status(400).render("auth/register", {
       errorMessage: "Your password needs to be at least 8 characters long.",
     });
-  }*/
+  }
 
   //   ! This use case is using a regular expression to control for special characters and min length
-  /*
+
   const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
 
   if (!regex.test(password)) {
@@ -53,7 +53,7 @@ router.post("/register", (req, res) => { //add isloggedOut
         "Password needs to have at least 8 chars and must contain at least one number, one lowercase and one uppercase letter.",
     });
   }
-  */
+
 
   // Search the database for a user with the username submitted in the form
   User.findOne({ username }).then((found) => {
@@ -82,7 +82,7 @@ router.post("/register", (req, res) => { //add isloggedOut
         //res.send("hi")
         console.log(user)
         res.render("users/user-profile", { userInSession: req.session.user });
-      
+
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
@@ -143,8 +143,8 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         }
         req.session.user = user;
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
-      console.log("hello world")
-      res.redirect ("/user-profile");
+        console.log("hello world")
+        res.redirect("/user-profile");
       });
     })
 
