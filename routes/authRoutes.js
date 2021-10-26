@@ -15,8 +15,9 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
 router.get("/user-profile", (req, res)=>{
-  res.render("users/user-profile")
+  res.render("users/user-profile", { userInSession: req.session.user })
 })
+
 router.get("/register", (req, res) => { //add isloggedOut
   res.render("auth/register");
 });
@@ -81,7 +82,7 @@ router.post("/register", (req, res) => { //add isloggedOut
         //res.send("hi")
         console.log(user)
         res.render("users/user-profile", { userInSession: req.session.user });
-        
+      
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
@@ -142,7 +143,8 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         }
         req.session.user = user;
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
-        return res.redirect("/");
+      console.log("hello world")
+      res.redirect ("/user-profile");
       });
     })
 
