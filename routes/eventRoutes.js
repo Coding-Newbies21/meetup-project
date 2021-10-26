@@ -54,7 +54,7 @@ router.post("/events/create", isLoggedIn, (req, res, next) => {
     })
 })
 
-router.get("/events/:eventId", (req, res, next) => {
+router.get("/events/:eventId", isLoggedIn, (req, res, next) => {
   Event.findById(req.params.eventId)
     .populate('organiser')
     .then((eventFromDB) => {
@@ -66,7 +66,7 @@ router.get("/events/:eventId", (req, res, next) => {
     })
 })
 
-router.get('/events/:eventId/edit', (req, res, next) => {
+router.get('/events/:eventId/edit', isLoggedIn, (req, res, next) => {
   const { eventId } = req.params;
   Event.findById(eventId)
     .populate('organiser')
@@ -80,7 +80,7 @@ router.get('/events/:eventId/edit', (req, res, next) => {
 
 });
 
-router.post("/events/:eventId/edit", (req, res, next) => {
+router.post("/events/:eventId/edit", isLoggedIn, (req, res, next) => {
 
   const { title, description, category } = req.body;
 
