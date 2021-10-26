@@ -8,7 +8,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 router.get("/events", (req, res, next) => {
 
- Event
+  Event
     .find()
     .then(eventsFromDB => {
       const data = {
@@ -32,8 +32,8 @@ router.get("/events/create", isLoggedIn, (req, res, next) => {
 
 router.post("/events/create", isLoggedIn, (req, res, next) => {
 
-  const {title, description, category, image } = req.body;
-  const organisers = req.user._id
+  const { title, description, category, image } = req.body;
+  const organisers = req.user._id;
 
   const data = {
     title,
@@ -42,17 +42,64 @@ router.post("/events/create", isLoggedIn, (req, res, next) => {
     organisers,
     image,
   }
-  
+
   Event.create(data)
     .then(() => {
       res.redirect("/events");
     })
     .catch((error) => {
-      //console.log("Error creating the event", error);
-      res.re
+      console.log("Error creating the event", error);
+      next(error);
     })
 })
 
+router.get("/events/:eventId", (req, res, next) => {
+  Event.findById(req.params.eventId)
+    .populate('organisers')
+    .then((eventFromDB) => {
+      res.render("events/event-details", eventFromDB)
+    })
+    .catch((error) => {
+      console.log("Error getting event details from DB", error);
+      next(error);
+    })
+})
+
+router.get('/events/:eventId/edit', (req, res, next) => {
+  const { eventId } = req.params;
+  Event.findById(eventId)
+    .populate('organisers')
+    .then(eventToEdit => {
+      res.render("events/event-edit", eventToEdit)
+    })
+    .catch((error) => {
+      console.log("Error updating details", error);
+      next(error);
+    })
+
+});
+
+router.post("/events/:eventId/edit", (req, res, next) => {
+
+  const { title, description, category } = req.body;
+
+  const newDetails = {
+    title,
+    description,
+    category
+  };
+
+  Event.findByIdAndUpdate(req.params.eventId, newDetails, { new: true })
+    .then((evFromDB) => {
+
+      res.redirect('/events');
+      // res.redirect("Hellooo");
+    })
+    .catch((error) => {
+      console.log("Error updating details", error);
+      next(error);
+    })
+});
 
 
 module.exports = router;
