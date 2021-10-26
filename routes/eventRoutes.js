@@ -27,6 +27,7 @@ router.get("/events", (req, res, next) => {
 
 router.get("/events/create", isLoggedIn, (req, res, next) => {
   res.render("events/event-create");
+
 });
 
 
@@ -44,9 +45,8 @@ router.post("/events/create", isLoggedIn, (req, res, next) => {
   }
 
   Event.create(data)
-    .then(() => {
-      res.render("events/event-details")
-
+    .then((data) => {
+      res.redirect("/events")
     })
     .catch((error) => {
       console.log("Error creating the event", error);
@@ -58,6 +58,7 @@ router.get("/events/:eventId", isLoggedIn, (req, res, next) => {
   Event.findById(req.params.eventId)
     .populate('organiser')
     .then((eventFromDB) => {
+
       res.render("events/event-details", eventFromDB)
     })
     .catch((error) => {
@@ -94,7 +95,7 @@ router.post("/events/:eventId/edit", isLoggedIn, (req, res, next) => {
     .then((evFromDB) => {
 
       res.redirect('/events');
-      // res.redirect("Hellooo");
+      
     })
     .catch((error) => {
       console.log("Error updating details", error);
@@ -107,4 +108,15 @@ router.get("/events/other-events", (req, res, next) => {
 
 });
 
+router.post("/events/:eventId/delete", (req, res, next) => {
+  
+  Event.findByIdAndRemove(req.params.eventId)
+    .then(() => {
+      res.redirect('/events');
+    })
+    .catch((error) => {
+      console.log("Error deleting details from DB", error);
+      next(error);
+    })
+})
 module.exports = router;
