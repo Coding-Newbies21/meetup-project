@@ -33,13 +33,13 @@ router.get("/events/create", isLoggedIn, (req, res, next) => {
 router.post("/events/create", isLoggedIn, (req, res, next) => {
 
   const { title, description, category, image } = req.body;
-  const organisers = req.user._id;
+  const organiser = req.user._id;
 
   const data = {
     title,
     description,
     category,
-    organisers,
+    organiser,
     image,
   }
 
@@ -56,7 +56,7 @@ router.post("/events/create", isLoggedIn, (req, res, next) => {
 
 router.get("/events/:eventId", (req, res, next) => {
   Event.findById(req.params.eventId)
-    .populate('organisers')
+    .populate('organiser')
     .then((eventFromDB) => {
       res.render("events/event-details", eventFromDB)
     })
@@ -69,7 +69,7 @@ router.get("/events/:eventId", (req, res, next) => {
 router.get('/events/:eventId/edit', (req, res, next) => {
   const { eventId } = req.params;
   Event.findById(eventId)
-    .populate('organisers')
+    .populate('organiser')
     .then(eventToEdit => {
       res.render("events/event-edit", eventToEdit)
     })

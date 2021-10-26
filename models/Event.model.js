@@ -13,8 +13,8 @@ const eventSchema = new Schema(
       required: [true, 'Description is required.'],
     },
 
-    organisers: {type: Schema.Types.ObjectId, ref: 'User'},
-    
+    organiser: { type: Schema.Types.ObjectId, ref: 'User' },
+
 
     category: {
       type: String,
