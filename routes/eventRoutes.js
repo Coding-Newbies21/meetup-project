@@ -24,8 +24,30 @@ router.get("/events", (req, res, next) => {
 
 });
 
-router.get("/events/user-events", isLoggedIn, (req, res, next) => {
-  res.render("users/user-events")
+router.get("/events/user-events", isLoggedIn, (req, res, next)=>{
+  const userToken = req.session.user.username
+  console.log ("USER name", userToken) 
+  Event
+    .find()
+    .populate('organiser')
+    .then(eventsFromDB => {
+      const data = {
+        eventsArr: eventsFromDB 
+      }
+      const organiserToken = data.eventsArr[0].organiser.username;
+      console.log("organiser Name", organiserToken)
+      if (userToken == organiserToken) {
+        res.render("users/user-events", data)
+      } else {
+        res.redirect("/events")
+      }
+      
+    })
+    .catch((error) => {
+      console.log("Error getting list of events from DB", error);
+      next(error);
+    });
+
 })
 
 router.get("/events/create", isLoggedIn, (req, res, next) => {
@@ -41,8 +63,7 @@ router.post("/events/create", isLoggedIn,fileUploader.single('image'),(req, res,
   const image =  req.file.path;
   Event.create({ title, description, category,organiser,image})
     .then((data) => {
-      console.log("DATA:",data)
-      res.redirect("/events")
+      res.redirect("/events/user-events")
     })
     .catch((error) => {
       console.log("Error creating the event", error);
