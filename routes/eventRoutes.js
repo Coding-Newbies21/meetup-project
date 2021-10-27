@@ -24,7 +24,7 @@ router.get("/events", (req, res, next) => {
 
 });
 
-router.get("/events/user-events", isLoggedIn, (req, res, next)=>{
+router.get("/events/user-events", isLoggedIn, (req, res, next) => {
   res.render("users/user-events")
 })
 
@@ -34,21 +34,14 @@ router.get("/events/create", isLoggedIn, (req, res, next) => {
 });
 
 
-router.post("/events/create", isLoggedIn, (req, res, next) => {
+router.post("/events/create", isLoggedIn,fileUploader.single('image'),(req, res, next) => {
 
-  const { title, description, category, image } = req.body;
+  const { title, description, category} = req.body;
   const organiser = req.user._id;
-
-  const data = {
-    title,
-    description,
-    category,
-    organiser,
-    image,
-  }
-
-  Event.create(data)
+  const image =  req.file.path;
+  Event.create({ title, description, category,organiser,image})
     .then((data) => {
+      console.log("DATA:",data)
       res.redirect("/events")
     })
     .catch((error) => {
@@ -84,14 +77,15 @@ router.get('/events/:eventId/edit', isLoggedIn, (req, res, next) => {
 
 });
 
-router.post("/events/:eventId/edit", isLoggedIn, (req, res, next) => {
+router.post("/events/:eventId/edit", isLoggedIn,fileUploader.single('image'), (req, res, next) => {
 
   const { title, description, category } = req.body;
 
   const newDetails = {
     title,
     description,
-    category
+    category,
+    image
   };
 
   Event.findByIdAndUpdate(req.params.eventId, newDetails, { new: true })
