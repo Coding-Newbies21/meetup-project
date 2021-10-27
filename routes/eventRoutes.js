@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const Event = require("../models/Event.model");
 const User = require("../models/User.model");
-
+const fileUploader = require('../config/cloudinary.config');
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
