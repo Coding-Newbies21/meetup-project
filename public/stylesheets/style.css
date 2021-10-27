@@ -1,12 +1,50 @@
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #f2e4e0;
 }
 
-a {
-  color: #00b7ff;
+nav {
+  background:rgb(255,95,86,0.7);
+  height: 80px;
+  width: 100%;
 }
-
-h1 {
-  color: 15px;
+.logo {
+  color: white;
+  font-size: 15px;
+  line-height:80px;
+  padding: 0 20px;
+  font-weight: bold;
+  
+  
+}
+nav ul {
+  float: right;
+  
+}
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 15px;
+}
+nav ul li a {
+  color:white;
+  font-size: 17px;
+  border-radius: 5px;
+  
+  padding: 20px;
+  font-weight:bold ;
+}
+a.active,a:hover {
+  background-color: 	#e6d0c9 ;
+  transition: 0.5s;
+  color:rgb(119, 110, 110);
+  font-size: 18px;
 }
