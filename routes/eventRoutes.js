@@ -14,7 +14,7 @@ router.get("/events", (req, res, next) => {
       const data = {
         eventsArr: eventsFromDB // stored in a obj with name data that we have from DB
       }
-
+      console.log("DATA", data)
       res.render("events/event-list", data) // we are passing booklist from DB to our view
     })
     .catch((error) => {
@@ -24,6 +24,9 @@ router.get("/events", (req, res, next) => {
 
 });
 
+router.get("/events/user-events", isLoggedIn, (req, res, next)=>{
+  res.render("users/user-events")
+})
 
 router.get("/events/create", isLoggedIn, (req, res, next) => {
   res.render("events/event-create");
@@ -95,7 +98,6 @@ router.post("/events/:eventId/edit", isLoggedIn, (req, res, next) => {
     .then((evFromDB) => {
 
       res.redirect('/events');
-      
     })
     .catch((error) => {
       console.log("Error updating details", error);
@@ -108,8 +110,7 @@ router.get("/events/other-events", (req, res, next) => {
 
 });
 
-router.post("/events/:eventId/delete", (req, res, next) => {
-  
+router.post("/events/:eventId/delete", isLoggedIn, (req, res, next) => {
   Event.findByIdAndRemove(req.params.eventId)
     .then(() => {
       res.redirect('/events');
