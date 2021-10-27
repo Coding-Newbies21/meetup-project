@@ -22,12 +22,9 @@ nav {
   line-height:80px;
   padding: 0 20px;
   font-weight: bold;
-  
-  
 }
 nav ul {
   float: right;
-  
 }
 nav ul li {
   display: inline-block;
@@ -38,7 +35,6 @@ nav ul li a {
   color:white;
   font-size: 17px;
   border-radius: 5px;
-  
   padding: 20px;
   font-weight:bold ;
 }
@@ -57,4 +53,12 @@ a.active,a:hover {
   justify-content: space-around;
   padding: 10px;
   margin: 90px auto;
+}
+
+.event-summary{
+  display: flex;
+  flex-direction: column;
+  margin: 20px 30px 10px 20px;
+  width: 200px;
+  border: 1px solid black;
 }
