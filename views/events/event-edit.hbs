@@ -11,7 +11,8 @@
   </label>
   <div>
     <label>Image</label>
-    <input type="file" value="{{this.image}} name="image" />
+    <input type="file" name="image"/>
+    <input type="text" name="existingImage" hidden value="{{this.image}}"> 
   </div>
   <button type="submit"> Save </button>
   <button type="submit"> <a href="/user-profile">Cancel</a></button>
