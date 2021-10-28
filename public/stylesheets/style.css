@@ -197,3 +197,8 @@ a.active,a:hover {
   color: white;
   font: 18px;
 }*/
+
+.not-found{
+  margin: auto 8%;
+  padding: 30px;
+}
