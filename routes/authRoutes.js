@@ -14,7 +14,7 @@ const User = require("../models/User.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-router.get("/user-profile", (req, res) => {
+router.get("/user-profile",isLoggedIn, (req, res) => {
   res.render("users/user-profile", { userInSession: req.session.user })
 })
 

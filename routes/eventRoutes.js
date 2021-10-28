@@ -41,7 +41,6 @@ router.get("/events/user-events", isLoggedIn, (req, res, next)=>{
       } else {
         res.redirect("/events")
       }
-      
     })
     .catch((error) => {
       console.log("Error getting list of events from DB", error);
@@ -125,11 +124,6 @@ router.post("/events/:eventId/edit", isLoggedIn, (req, res, next) => {
       console.log("Error updating details", error);
       next(error);
     })
-});
-
-router.get("/events/other-events", (req, res, next) => {
-  res.redirect("/events")
-
 });
 
 router.post("/events/:eventId/delete", isLoggedIn, (req, res, next) => {
