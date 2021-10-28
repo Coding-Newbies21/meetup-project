@@ -117,11 +117,6 @@ router.post("/events/:eventId/edit", isLoggedIn, fileUploader.single('image'), (
     })
 });
 
-router.get("/events/other-events", (req, res, next) => {
-  res.redirect("/events")
-
-});
-
 router.post("/events/:eventId/delete", isLoggedIn, (req, res, next) => {
   Event.findByIdAndRemove(req.params.eventId)
     .then(() => {
