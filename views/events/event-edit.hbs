@@ -1,5 +1,5 @@
 <h2>Edit the event: {{event.title}}</h2>
-<form action="/events/{{this._id}}/edit" method="post">
+<form action="/events/{{this._id}}/edit" enctype="multipart/form-data" method="post">
   <label> Title:
     <input type="text" name="title" value="{{this.title}}" />
   </label>
@@ -9,6 +9,10 @@
   <label> Category:
     <input type="text" name="category" value="{{this.category}}" />
   </label>
+  <div>
+    <label>Image</label>
+    <input type="file" value="{{this.image}} name="image" />
+  </div>
   <button type="submit"> Save </button>
   <button type="submit"> <a href="/user-profile">Cancel</a></button>
 </form>
