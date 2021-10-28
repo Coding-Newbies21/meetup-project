@@ -173,3 +173,27 @@ a.active,a:hover {
   max-width: 200px;
 }
 
+.list-display{
+  flex-wrap: wrap;
+  border: 2px solid #04554B;
+  margin: 10px 40%;
+}
+.event-list{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 25px;
+}
+
+.view-title{
+  /*margin: auto 20%;*/
+  text-align: center;
+  padding: 40px;
+  color: #04554B;
+}
+
+/*.delete-btn{
+  background-color: #04554B;
+  color: white;
+  font: 18px;
+}*/

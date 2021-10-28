@@ -1,10 +1,14 @@
+<h1 class="view-title">Our list of Events keeps growing!</h1>
 {{#each eventsArr}}
-<div>
-  <p>
-    Title: {{this.title}}
-  </p>
-  <img class="event-img" src="{{this.image}}">
-  <a href="/events/{{this._id}}">More details</a>
-  <br><br>
+<div class="list-display">
+  <div class="event-list">
+    <p>
+      {{this.title}}
+    </p>
+    <img class="event-img" src="{{this.image}}">
+    <a href="/events/{{this._id}}">More details</a>
+    <br><br>
+  </div>
 </div>
+
 {{/each}}
