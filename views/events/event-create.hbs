@@ -2,16 +2,16 @@
   <h3>Create a New Event</h3>
   <form action="/events/create" enctype="multipart/form-data" method="post">
     <label> Title</label>
-    <input type="text" class="text-input" name="title" />
+    <input type="text" class="text-input" name="title" required />
     <label> Category</label>
-    <input type="text" class="text-input" name="category" min="1" max="10" />
+    <input type="text" class="text-input" name="category" min="1" max="10" required />
     <label> Description</label>
     <br>
-    <textarea name="description" class="text-area" cols="64" rows="3"> </textarea>
+    <textarea name="description" class="text-area" cols="64" rows="3" required></textarea>
     <br>
     <label>Image</label>
     <br>
-    <input type="file" class="text-file" name="image" />
+    <input type="file" class="text-file" name="image" required />
     <br>
     <button class="create-btn" type="submit"> Create </button>
     <button class="cancel-btn" type="submit"><a href="/user-profile">Cancel</a></button>
