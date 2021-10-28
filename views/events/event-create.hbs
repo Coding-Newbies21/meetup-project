@@ -1,32 +1,19 @@
-<h1>Create a New Event</h1>
-<div class="">
-  <div class="">
-    <form action="/events/create" enctype="multipart/form-data" method="post">
-      <div>
-        <label> Title</label>
-        <input type="text" name="title" />
-      </div>
-      {{!-- <label>Organiser:</label>
-      <select name="author">
-        {{#each authorsArr}}
-        <option value="{{this._id}}">{{this.name}} {{this.surname}}</option>
-        {{/each}}
-      </select> --}}
-
-      <div>
-        <label> Description</label>
-        <textarea name="description" cols="30" rows="4"> </textarea>
-      </div>
-      <div>
-        <label> Category</label>
-        <input type="text" name="category" min="1" max="10" />
-      </div>
-      <div>
-        <label>Image</label>
-        <input class="event-img" type="file" name="image"/>
-      </div>
-      <button type="submit"> Create </button>
-      <button type="submit"> <a href="/user-profile">Cancel</a></button>
-    </form>
-  </div>
+<div class="container">
+  <h3>Create a New Event</h3>
+  <form action="/events/create" enctype="multipart/form-data" method="post">
+    <label> Title</label>
+    <input type="text" class="text-input" name="title" />
+    <label> Category</label>
+    <input type="text" class="text-input" name="category" min="1" max="10" />
+    <label> Description</label>
+    <br>
+    <textarea name="description" class="text-area" cols="64" rows="3"> </textarea>
+    <br>
+    <label>Image</label>
+    <br>
+    <input type="file" class="text-file" name="image" />
+    <br>
+    <button class="create-btn" type="submit"> Create </button>
+    <button class="cancel-btn" type="submit"><a href="/user-profile">Cancel</a></button>
+  </form>
 </div>
