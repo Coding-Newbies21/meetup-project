@@ -18,7 +18,7 @@ const eventSchema = new Schema(
 
     category: {
       type: String,
-      required: [true, 'Password is required.'],
+      required: [true, 'Category is required.'],
     },
 
     image: {
