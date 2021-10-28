@@ -24,15 +24,15 @@ router.get("/events", (req, res, next) => {
 
 });
 
-router.get("/events/user-events", isLoggedIn, (req, res, next)=>{
+router.get("/events/user-events", isLoggedIn, (req, res, next) => {
   const userToken = req.session.user.username
-  console.log ("USER name", userToken) 
+  console.log("USER name", userToken)
   Event
     .find()
     .populate('organiser')
     .then(eventsFromDB => {
       const data = {
-        eventsArr: eventsFromDB 
+        eventsArr: eventsFromDB
       }
       const organiserToken = data.eventsArr[0].organiser.username;
       console.log("organiser Name", organiserToken)
@@ -41,7 +41,7 @@ router.get("/events/user-events", isLoggedIn, (req, res, next)=>{
       } else {
         res.redirect("/events")
       }
-      
+
     })
     .catch((error) => {
       console.log("Error getting list of events from DB", error);
@@ -56,12 +56,12 @@ router.get("/events/create", isLoggedIn, (req, res, next) => {
 });
 
 
-router.post("/events/create", isLoggedIn,fileUploader.single('image'),(req, res, next) => {
+router.post("/events/create", isLoggedIn, fileUploader.single('image'), (req, res, next) => {
 
-  const { title, description, category} = req.body;
+  const { title, description, category } = req.body;
   const organiser = req.user._id;
-  const image =  req.file.path;
-  Event.create({ title, description, category,organiser,image})
+  const image = req.file.path;
+  Event.create({ title, description, category, organiser, image })
     .then((data) => {
       res.redirect("/events/user-events")
     })
@@ -98,20 +98,17 @@ router.get('/events/:eventId/edit', isLoggedIn, (req, res, next) => {
 
 });
 
-router.post("/events/:eventId/edit", isLoggedIn,fileUploader.single('image'), (req, res, next) => {
+router.post("/events/:eventId/edit", isLoggedIn, fileUploader.single('image'), (req, res, next) => {
+  const { title, description, category, existingImage } = req.body;
 
-  const { title, description, category } = req.body;
-
-  const newDetails = {
-    title,
-    description,
-    category,
-    image
-  };
-
-  Event.findByIdAndUpdate(req.params.eventId, newDetails, { new: true })
+  let image;
+  if (req.file) {
+    image = req.file.path;
+  } else {
+    image = existingImage;
+  }
+  Event.findByIdAndUpdate(req.params.eventId, { title, description, category, image }, { new: true })
     .then((evFromDB) => {
-
       res.redirect('/events');
     })
     .catch((error) => {
@@ -128,7 +125,7 @@ router.get("/events/other-events", (req, res, next) => {
 router.post("/events/:eventId/delete", isLoggedIn, (req, res, next) => {
   Event.findByIdAndRemove(req.params.eventId)
     .then(() => {
-      res.redirect('/events');
+      res.redirect('/events/user-events');
     })
     .catch((error) => {
       console.log("Error deleting details from DB", error);
