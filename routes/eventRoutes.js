@@ -32,15 +32,19 @@ router.get("/events/user-events", isLoggedIn, (req, res, next)=>{
     .populate('organiser')
     .then(eventsFromDB => {
       const data = {
-        eventsArr: eventsFromDB 
+        eventsArr: [] 
       }
-      const organiserToken = data.eventsArr[0].organiser.username;
-      console.log("organiser Name", organiserToken)
-      if (userToken == organiserToken) {
-        res.render("users/user-events", data)
-      } else {
-        res.redirect("/events")
+      console.log("ALL EVENTS>>>", eventsFromDB)
+      for (let i=0; i<eventsFromDB.length; i++){
+        if (userToken == eventsFromDB[i].organiser.username) {
+           data.eventsArr.push(eventsFromDB[i])
+        }
       }
+
+      return data  
+    })
+    .then ((data)=>{
+      res.render("users/user-events", data)
     })
     .catch((error) => {
       console.log("Error getting list of events from DB", error);
