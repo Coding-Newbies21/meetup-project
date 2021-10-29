@@ -1,6 +1,15 @@
-<h1>My Profile</h1>
-<h3>Welcome {{userInSession.username}}</h3>
+<div class="container">
+  <h2>Welcome {{userInSession.username}}!</h2>
+  <hr>
 
-<div><a href="/events/create"> Create</a></div>
-<div><a href="/events/user-events">My Events</div>
-<div><a href="/events">Check other Events</a></div>
+  <div class="userprofile">
+    <div><img src="/images/userlogo.png"/></div>
+    <div>
+      <h4>What do you want to do?</h4>
+      <div>
+        <div><a href="/events/create" class="create-btn"> Create Events</a></div>
+        <div><a href="/events/user-events" class="see-btn">See My Events</a></div>
+      </div>
+    </div>
+  </div>
+</div>

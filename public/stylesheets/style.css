@@ -10,32 +10,13 @@ body {
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   background-color: #f2e4e0;
 }
-.log{
-  display: flex;
-  flex-direction: column;
-  margin: 200px 500px;
-  line-height: 50px;
-  padding: 30px;
-  border: 2px solid black;
-  background-color: #F6F4F4;
-}
 
-.logo {
-  position:absolute;
-  top:5px;
-  left:20px;
-  width:75px;
-  height:65px;
-}
-
-/* nav {
-  background:#7c9c55;
-  height: 80px;
-  width: 100%;
-  margin-bottom: 70px;
-} */
 nav {
+<<<<<<< HEAD
   background:hsl(29, 97%, 48%);
+=======
+  background:#04554B;
+>>>>>>> fee5f2fc2db79a51ca189c7f9a4d0a75ccf0d727
   height: 80px;
   width: 100%;
 }
@@ -44,7 +25,6 @@ nav ul {
   list-style: none;
   float: right;
   display: flex;
-  
 }
 nav ul li {
   display: inline-block;
@@ -66,24 +46,185 @@ nav ul li a {
   font-size: 15px;
 }
 
- /* a.active, a:hover {
-  background-color: 	#e6d0c9 ;
-  transition: 0.5s;
-  color:rgb(119, 110, 110);
+.log{
+  display: flex;
+  flex-direction: column;
+  margin: 200px 500px;
+  line-height: 50px;
+  padding: 30px;
+  border: 3px solid #04554B;
+  background-color: #F6F4F4;
   font-size: 18px;
+}
+
+.logo {
+  position:absolute;
+  top:5px;
+  left:20px;
+  width:75px;
+  height:65px;
+}
+
+.event-img {
+  width: 300px;
+}
+
+.event-details {
+  position: relative;
+  top: 20px;
+  line-height: 30px;
+}
+
+.text-input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 2px solid rgb(219, 169, 169);
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.text-file{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 3px solid rgb(219, 169, 169);
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.text-area{
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+.create-btn, .cancel-btn, .see-btn{
+  width: 30%;
+  background-color:#04554B;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px; 
+  margin-left: 10%;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.cancel-btn a {
+  color: white;
+  font-size: 18px;
+}
+
+.container{
+  border-radius: 5px;
+  background-color: #f3d3cb;
+  padding: 20px;
+  width: 30%;
+  margin: 150px auto;
   text-decoration: none;
-} */
+} 
+
+
+.redirect-btn{
+  width: 100px;
+  background-color:#04554B;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.userprofile {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  line-height: 60px ;
+}
+.userprofile img {
+  max-width: 200px;
+}
+
+.list-display{
+  flex-wrap: wrap;
+  border: 2px solid #04554B;
+  margin: 10px 40%;
+}
+.event-list{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 25px;
+}
+
+.view-title{
+  text-align: center;
+  padding: 40px;
+  color: #04554B;
+}
+
+.view-title h4 {
+  margin: auto 600px;
+  padding: 15px;
+}
+
+/*.delete-btn{
+  background-color: #04554B;
+  color: white;
+  font: 18px;
+}*/
+
+.not-found{
+  margin: auto 8%;
+  padding: 30px;
+}
+
+.initial-banner{
+  width: 40%;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: row;
+  font: 16px;
+  line-height: 2rem;
+  padding: 5px;
+  text-align: center;
+  align-items: center;
+  /*border: 1px solid black;*/
+}
+
+.initial-banner img {
+  width: 250px;
+  height: 250px;
+  border-radius: 15px;
+}
+
+.phrase, .index-welcome{
+  padding: 20px;
+}
+
+.index-image-display{
+  display: flex;
+  flex-direction: row;
+  /*border: 1px solid black;*/
+  margin: 20px 450px;
+}
 
 .image-display{
   width: 300px;
-  height: 200px;
+  height: 100px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
   padding: 10px;
-  margin: 90px auto;
+  margin: 70px auto 40px;
+  /*border: 1px solid black;*/
 }
 
+<<<<<<< HEAD
 
 .center {
   position: relative;
@@ -196,3 +337,35 @@ nav ul li a {
     left: 55%;
     top: 250px;
   }
+=======
+.image-display h4{
+  margin: auto;
+  padding: 20px;
+  color: #04554B;
+}
+
+.image-display img{
+  border-radius: 10px;
+}
+
+.follow-us{
+  width: 40%;
+  margin: 190px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 30px;
+}
+
+.follow-us h2, a{
+  margin: 30% 10px;
+  color: #04554B;
+}
+
+.follow-us-social img{
+  width: 80px;
+  padding: 10px;
+  display: flex;
+  border-radius: 15px;
+}
+>>>>>>> fee5f2fc2db79a51ca189c7f9a4d0a75ccf0d727
