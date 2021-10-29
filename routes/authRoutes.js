@@ -78,6 +78,7 @@ router.post("/register", (req, res) => { //add isloggedOut
       })
       .then((user) => {
         // Bind the user to the session object
+        req.app.locals.isCurrentUserLoggedIn = true;
         req.session.user = user;
         //res.send("hi")
         console.log(user)
