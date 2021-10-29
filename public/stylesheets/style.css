@@ -12,11 +12,7 @@ body {
 }
 
 nav {
-<<<<<<< HEAD
-  background:hsl(29, 97%, 48%);
-=======
   background:#04554B;
->>>>>>> fee5f2fc2db79a51ca189c7f9a4d0a75ccf0d727
   height: 80px;
   width: 100%;
 }
@@ -224,7 +220,6 @@ nav ul li a {
   /*border: 1px solid black;*/
 }
 
-<<<<<<< HEAD
 
 .center {
   position: relative;
@@ -337,7 +332,6 @@ nav ul li a {
     left: 55%;
     top: 250px;
   }
-=======
 .image-display h4{
   margin: auto;
   padding: 20px;
@@ -368,4 +362,3 @@ nav ul li a {
   display: flex;
   border-radius: 15px;
 }
->>>>>>> fee5f2fc2db79a51ca189c7f9a4d0a75ccf0d727
