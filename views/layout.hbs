@@ -15,7 +15,9 @@
       <ul class="nav-bar left-bar">
          <li><a href="/">Home</a></li>
          <li><a href="/events">Events </a></li>
-
+         {{#if isCurrentUserLoggedIn}}
+            <li><a href="/events/create">Create Events </a></li>
+         {{/if}}
       </ul>
 
       <ul class="nav-bar right-bar">

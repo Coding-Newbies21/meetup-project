@@ -306,8 +306,8 @@ nav ul li a {
     border-radius: 5px;
   }
   .list-elm {
-    float:left;
-    display: inline;
+    float: left;
+    /*display: inline;*/
     align-items: center;
     position: relative;
     top:60px;
