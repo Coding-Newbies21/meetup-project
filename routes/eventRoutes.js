@@ -118,7 +118,7 @@ router.post("/events/:eventId/edit", isLoggedIn, fileUploader.single('image'), (
   }
   Event.findByIdAndUpdate(req.params.eventId, { title, description, category, image }, { new: true })
     .then((evFromDB) => {
-      res.redirect('/events');
+      res.redirect('/events/user-events');
     })
     .catch((error) => {
       console.log("Error updating details", error);
