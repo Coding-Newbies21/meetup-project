@@ -35,7 +35,7 @@ body {
   margin-bottom: 70px;
 } */
 nav {
-  background:rgb(255,95,86,0.5);
+  background:hsl(29, 97%, 48%);
   height: 80px;
   width: 100%;
 }
@@ -54,16 +54,16 @@ nav ul li {
 
 nav ul li a {
   color:white;
-  font-size: 17px;
+  font-size: 16px;
   border-radius: 5px;
   padding: 20px;
   font-weight:bold ;
 }
-a.active,a:hover {
-  background-color: 	#e6d0c9 ;
+.nav-bar a.active,.nav-bar a:hover {
+  background-color: 	#e7b3a3 ;
   transition: 0.5s;
   color:rgb(119, 110, 110);
-  font-size: 18px;
+  font-size: 15px;
 }
 
  /* a.active, a:hover {
@@ -73,12 +73,7 @@ a.active,a:hover {
   font-size: 18px;
   text-decoration: none;
 } */
-/* .event-img {
-  width:250px;
-  height:250px;
-  border-radius:5px;
-  margin-left:100px;
-} */
+
 .image-display{
   width: 300px;
   height: 200px;
@@ -89,16 +84,17 @@ a.active,a:hover {
   margin: 90px auto;
 }
 
-.event-img {
-  width: 300px;
-
-  }
-
 
 .center {
-    position: relative;
-    top: 20px;
-    left: 40%;
+  position: relative;
+  top: 20px;
+  left: 40%;
+}
+.centerTitle{
+  position: relative;
+  color: #df610d;
+  top: 20px;
+  left: 40%;
 }
 
 .text-input {
@@ -140,11 +136,11 @@ a.active,a:hover {
     font-size: 15px; 
     margin-left: 10%;
     margin-top: 10px;
-    font-size: 18px;
+    font-size: 16px;
   }
   .cancel-btn a {
     color: white;
-    font-size: 18px;
+    font-size: 16px;
   }
   .container{
     border-radius: 5px;
@@ -152,7 +148,9 @@ a.active,a:hover {
     padding: 20px;
     width: 30%;
     margin: auto;
-  
+    position: absolute;
+    left: 35%;
+    top: 20%;
   }
   .redirect-btn{
     width: 100px;
@@ -161,4 +159,39 @@ a.active,a:hover {
     padding: 10px;
     border-radius: 5px;
   }
+  .list-elm {
+    float:left;
+    display: inline;
+    align-items: center;
+    position: relative;
+    top:60px;
+    left: 40px;
+    border-radius: 50px;
+    margin-bottom:90px;
+  }
+  .event-img {
+    width: 300px;
+    height:200px;
+    border-radius:20px;
+    margin-left:100px;  
+    
+  } 
   
+  .event-one-img {
+    width: 400px;
+    height:400px;
+    border-radius:20px;
+    display: inline-block;
+  } 
+  .test{
+    position: absolute;
+    left: 150px;
+  }
+  .img-container {
+    margin:50px;
+  }
+  .info{
+    position: absolute;
+    left: 500px;
+    top: 140px;
+  }

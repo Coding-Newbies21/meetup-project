@@ -1,9 +1,15 @@
-<div class="center">
-<img class="event-img" src="{{this.image}}">
+<div class="img-container">
+<img class="event-one-img" src="{{this.image}}">
+<div class="info">
 <h3><b>{{this.title}}</b></h3>
+<br>
 <p>Description: {{this.description}}</p>
+<br>
 <p>Category:{{this.category}}</p>
+<br>
 <p>Organiser:{{this.organiser.username}}</p>
+<br>
 <a href="/events">Back</a>
 <a href="/events/{{this._id}}/edit">Edit</a>
+</div>
 </div>

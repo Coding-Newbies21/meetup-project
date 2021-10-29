@@ -1,9 +1,12 @@
+<h1 class="centerTitle">Upcoming Events</h1>
 {{#each eventsArr}}
-<div>
-  <p>
-    Title: {{this.title}}
-  </p>
+<div class="list-elm">
+  <img class="event-img" src="{{this.image}}">
+  <br><br>
+  <div class="test">
+  <h3>{{this.title}}</h3>
   <a href="/events/{{this._id}}">More details</a>
   <br><br>
+</div>
 </div>
 {{/each}}
