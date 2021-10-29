@@ -5,7 +5,6 @@ const fileUploader = require('../config/cloudinary.config');
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-
 router.get("/events", (req, res, next) => {
 
   Event
@@ -32,18 +31,18 @@ router.get("/events/user-events", isLoggedIn, (req, res, next) => {
     .populate('organiser')
     .then(eventsFromDB => {
       const data = {
-        eventsArr: [] 
+        eventsArr: []
       }
       console.log("ALL EVENTS>>>", eventsFromDB)
-      for (let i=0; i<eventsFromDB.length; i++){
+      for (let i = 0; i < eventsFromDB.length; i++) {
         if (userToken == eventsFromDB[i].organiser.username) {
-           data.eventsArr.push(eventsFromDB[i])
+          data.eventsArr.push(eventsFromDB[i])
         }
       }
-      
-      return data  
+
+      return data
     })
-    .then ((data)=>{
+    .then((data) => {
       res.render("users/user-events", data)
     })
     .catch((error) => {
@@ -92,7 +91,13 @@ router.get('/events/:eventId/edit', isLoggedIn, (req, res, next) => {
   Event.findById(eventId)
     .populate('organiser')
     .then(eventToEdit => {
-      res.render("events/event-edit", eventToEdit)
+      if (eventToEdit.organiser.username === req.session.user.username) {
+        res.render("events/event-edit", eventToEdit)
+      } else {
+        //res.send("Sorry you are not able to edit this event");
+        res.redirect("/events");
+      }
+
     })
     .catch((error) => {
       console.log("Error updating details", error);
