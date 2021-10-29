@@ -133,7 +133,6 @@ a.active,a:hover {
   border-radius: 5px;
   font-size: 14px;
   cursor: pointer;
- 
 }
 
 .userprofile {
@@ -182,12 +181,12 @@ a.active,a:hover {
 
 .initial-banner{
   width: 40%;
-  margin: auto;
+  margin: 30px auto;
   display: flex;
   flex-direction: row;
   font: 16px;
   line-height: 2rem;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
   align-items: center;
   /*border: 1px solid black;*/
@@ -207,16 +206,16 @@ a.active,a:hover {
   display: flex;
   flex-direction: row;
   /*border: 1px solid black;*/
-  margin: auto 450px;
+  margin: 20px 450px;
 }
 
 .image-display{
   width: 300px;
-  height: 200px;
+  height: 100px;
   display: flex;
   flex-direction: column;
   padding: 10px;
-  margin: 40px auto;
+  margin: 70px auto 40px;
   /*border: 1px solid black;*/
 }
 
@@ -232,7 +231,7 @@ a.active,a:hover {
 
 .follow-us{
   width: 40%;
-  margin: 20px auto;
+  margin: 190px auto;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -240,12 +239,12 @@ a.active,a:hover {
 }
 
 .follow-us h2, a{
-  margin: 30% 25px;
+  margin: 30% 10px;
   color: #04554B;
 }
 
 .follow-us-social img{
-  width: 100px;
+  width: 80px;
   padding: 10px;
   display: flex;
   border-radius: 15px;
