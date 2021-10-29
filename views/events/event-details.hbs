@@ -1,9 +1,9 @@
-<div class="center">
-<img class="event-img" src="{{this.image}}">
-<h3><b>{{this.title}}</b></h3>
-<p>Description: {{this.description}}</p>
-<p>Category:{{this.category}}</p>
-<p>Organiser:{{this.organiser.username}}</p>
-<a href="/events">Back</a>
-<a href="/events/{{this._id}}/edit">Edit</a>
+<div class="container event-details">
+  <img class="event-img" src="{{this.image}}">
+  <h3><b>{{this.title}}</b></h3>
+  <p>Description: {{this.description}}</p>
+  <p>Category:{{this.category}}</p>
+  <p>Organiser:{{this.organiser.username}}</p>
+  <a href="/events" class="redirect-btn">Back</a>
+  <a href="/events/{{this._id}}/edit" class="redirect-btn">Edit</a>
 </div>
