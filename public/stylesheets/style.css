@@ -188,10 +188,11 @@ nav ul li a {
     left: 150px;
   }
   .img-container {
-    margin:50px;
+    margin-left: 30%;
+    margin-top: 5%;    
   }
   .info{
     position: absolute;
-    left: 500px;
-    top: 140px;
+    left: 55%;
+    top: 250px;
   }
