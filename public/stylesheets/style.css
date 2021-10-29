@@ -141,9 +141,11 @@ nav ul li a {
   flex-direction: row;
   padding: 20px;
   line-height: 60px ;
+  
 }
 .userprofile img {
   max-width: 200px;
+  border-radius: 50%;
 }
 
 .list-display{
@@ -169,11 +171,11 @@ nav ul li a {
   padding: 15px;
 }
 
-/*.delete-btn{
+.delete-btn{
   background-color: #04554B;
   color: white;
   font: 18px;
-}*/
+}
 
 .not-found{
   margin: auto 8%;
@@ -228,7 +230,7 @@ nav ul li a {
 }
 .centerTitle{
   position: relative;
-  color: #df610d;
+  color: #04554B;
   top: 20px;
   left: 40%;
 }
@@ -263,7 +265,7 @@ nav ul li a {
   }
   .create-btn, .cancel-btn {
     width: 30%;
-    background-color:#ee6035;
+    background-color:#04554B;
     color: white;
     padding: 14px 20px;
     border: none;
@@ -286,11 +288,11 @@ nav ul li a {
     margin: auto;
     position: absolute;
     left: 35%;
-    top: 20%;
+    top: 30%;
   }
   .redirect-btn{
     width: 100px;
-    background-color:rgb(255,95,86,0.7);
+    background-color:#04554B;
     color: white;
     padding: 10px;
     border-radius: 5px;
