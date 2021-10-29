@@ -77,8 +77,9 @@ router.get("/events/:eventId", isLoggedIn, (req, res, next) => {
   Event.findById(req.params.eventId)
     .populate('organiser')
     .then((eventFromDB) => {
+      const isOrganiser = (eventFromDB.organiser.username === req.session.user.username);
 
-      res.render("events/event-details", eventFromDB)
+      res.render("events/event-details",{isOrganiser,eventFromDB});
     })
     .catch((error) => {
       console.log("Error getting event details from DB", error);
