@@ -95,7 +95,9 @@ GOAL 4: functionality to login and log out
 
 
 ## Wishlist
-- Image
+- [X] Image
 - Like button
 - Event Category from a list of choices (mongoose enum)
-- Display username if logged in
+- [X] Display username if logged in 
+
+Let's see, here is the link of our App https://meetmeup.herokuapp.com/
